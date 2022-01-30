@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SME demo Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+  .nav {
+  background: #e3e9f0;
+  padding: 20px;
+  }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron text-center" style="margin-bottom:0" id="header">
+  <h1>Your Small Business</h1>
+  <p>Demo Page for your small business!</p> 
+</div>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">Manu Items:</a>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick=displaylist("speaker");>Spekaers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick=displaylist("monitor");>Monitore</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick=displaylist("router");>Routers</a>
+      </li>    
+    </ul>
+  </div>  
+</nav>
+
+<div class="container-fluid" style="margin-top:30px">
+  <div class="row">
+    <div class="col-sm-2 card card-body" id="subcategory">
+      <h5><u>Sub Categories:</u></h5>
+      <ul class="nav nav-pills flex-column" id="sublist">
+        <liclass="nav-item">
+          <a href="#" onclick=displayitems("speaker");>Speaker item1</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" onclick=displayitems("speaker");>Speaker item2</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" onclick=displayitems("speaker");>Speaker item3</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" onclick=displayitems("speaker");>Speaker item4</a>
+        </li>
+      </ul>
+    </div>
+    <div  class="col-sm-10" id="displayarea" onafterprint="alert('hi there!');">
+      <img src="speaker1.png" alt='MicroLab Speaker' width="300" height="300" style="vertical-align:middle;">
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron text-center" style="margin-bottom:0" id="footer">
+  <p><b><i>Contact information</i></b></p>
+</div>
+
+<script>
+    function displaylist(cateitem) {
+        let data=[];
+        if(cateitem=='speaker'){
+            data = ["Speaker item1", "Speaker item2", "Speaker item3", "Speaker item4"];
+        }else if(cateitem=='monitor'){
+            data = ["Monitor item1", "Monitor item2", "Monitor item3", "Monitor item4"];
+        }
+        else{
+            data = ["Router item1", "Router item2", "Router item3", "Router item4"];
+        }
+       let list = document.getElementById("sublist");
+       list.innerText="";
+       data.forEach((item) => {
+            let a = document.createElement("a");
+            let li = document.createElement("li");
+            
+            a.textContent = item;
+            a.setAttribute('href', "#");
+            a.setAttribute('onclick', "displayitems('" + cateitem + "')");
+
+            li.appendChild(a);
+            list.appendChild(li);
+
+      });
+
+      if(cateitem=='speaker'){
+        let infoarea = document.getElementById("displayarea");
+        infoarea.innerHTML = "<img src='speaker1.png' alt='MicroLab Speaker' width='300' height='300' style='vertical-align:middle;'>";
+
+      }else if(cateitem=='monitor'){
+        let infoarea = document.getElementById("displayarea");
+        infoarea.innerHTML = "<img src='monitor1.jpg' alt='MicroLab Speaker' width='300' height='300' style='vertical-align:middle;'>";
+      }else{
+        let infoarea = document.getElementById("displayarea");
+        infoarea.innerHTML = "<img src='router1.jpg' alt='MicroLab Speaker' width='300' height='300' style='vertical-align:middle;'>";
+      }
+
+    }
+
+    function displayitems(displayitem){
+      let infoarea = document.getElementById("displayarea");
+      if(displayitem=='speaker'){
+        infoarea.innerHTML = "<img src='speaker1.png' alt='MicroLab Speaker' width='300' height='300' style='vertical-align:middle;'>";
+        infoarea.innerHTML += "<br><img src='speaker2.jpg' alt='MicroLab Speaker' width='300' height='300' style='vertical-align:middle;'>";
+      }else if(displayitem=='monitor'){
+        infoarea.innerHTML = "<img src='monitor1.jpg' alt='MicroLab Speaker' width='300' height='300' style='vertical-align:middle;'>";
+        infoarea.innerHTML += "<br><img src='monitor2.jpg' alt='MicroLab Speaker' width='300' height='300' style='vertical-align:middle;'>";
+      }else{
+        infoarea.innerHTML = "<img src='router1.jpg' alt='MicroLab Speaker' width='300' height='300' style='vertical-align:middle;'>";
+        infoarea.innerHTML += "<br><img src='router2.jpg' alt='MicroLab Speaker' width='300' height='300' style='vertical-align:middle;'>";
+      }
+       
+    }
+  </script>
+</body>
+</html>
