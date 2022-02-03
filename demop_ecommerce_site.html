@@ -9,9 +9,22 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <style>
-  .nav {
+  
+  .nav{
   background: #e3e9f0;
   padding: 20px;
+  }
+  
+  .nav-link:hover{
+    background: aqua;
+  }
+  #leftbarlink{
+    padding: 4px 8px;
+    margin: 1px 1px;
+  }
+  #leftbarlink:hover{
+    background: rgb(241, 245, 4);
+    border: 1px solid #ec10e1;
   }
   </style>
 </head>
@@ -44,17 +57,17 @@
     <div class="col-sm-2 card card-body" id="subcategory">
       <h5><u>Sub Categories:</u></h5>
       <ul class="nav nav-pills flex-column" id="sublist">
-        <liclass="nav-item">
-          <a href="#" onclick=displayitems("speaker");>Speaker item1</a>
+        <li class="nav-item">
+          <a id="leftbarlink" href="#" onclick=displayitems("speaker");>Speaker item1</a>
         </li>
         <li class="nav-item">
-          <a href="#" onclick=displayitems("speaker");>Speaker item2</a>
+          <a id="leftbarlink" href="#" onclick=displayitems("speaker");>Speaker item2</a>
         </li>
         <li class="nav-item">
-          <a href="#" onclick=displayitems("speaker");>Speaker item3</a>
+          <a id="leftbarlink" href="#" onclick=displayitems("speaker");>Speaker item3</a>
         </li>
         <li class="nav-item">
-          <a href="#" onclick=displayitems("speaker");>Speaker item4</a>
+          <a id="leftbarlink" href="#" onclick=displayitems("speaker");>Speaker item4</a>
         </li>
       </ul>
     </div>
@@ -86,6 +99,7 @@
             let li = document.createElement("li");
             
             a.textContent = item;
+            a.setAttribute('id',"leftbarlink");
             a.setAttribute('href', "#");
             a.setAttribute('onclick', "displayitems('" + cateitem + "')");
 
